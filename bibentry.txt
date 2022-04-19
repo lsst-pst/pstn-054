@@ -1,0 +1,9 @@
+% bibentry template for lsst.bib in https://github.com/lsst/lsst-texmf/blob/main/texmf/bibtex/bib/lsst.bib
+
+@DocuShare{PSTN-054,
+   author = { federica bianco (she/her/hers) },
+    title = {Updated estimates of the Rubin system throughput and expected LSST image depth},
+     year = 2022,
+    month = Apr,
+   handle = {PSTN-054},
+      url = {https://pstn-054.lsst.io } }
