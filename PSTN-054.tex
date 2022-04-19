@@ -19,7 +19,7 @@
 \newcommand{\baseline}{\texttt{baseline\_v2.0}}
 \newcommand{\fwhme}{\ensuremath{{\rm FWHM}_\mathrm{Eff}}}
 
-\newcommand{\SRD}{\href{https://docushare.lsst.org/docushare/dsweb/Get/LPM-17}{\textcolor[HTML]{1155CC}{SRD}}}
+%\newcommand{\SRD}{\href{https://docushare.lsst.org/docushare/dsweb/Get/LPM-17}{\textcolor[HTML]{1155CC}{SRD}}}
 
 \setlength\parindent{10pt}
 
@@ -236,7 +236,7 @@ m_5 = \cm + 0.5\,(m_{\rm sky} - 21) + 2.5\,\log_{10}\left(\frac{0.7 \, {\rm arcs
 \end{equation}
 where $m_{\rm sky}$ is the sky brightness (AB mag arcsec$^{-2}$), $\theta$ is seeing, $t_{\rm vis}$ is exposure 
 time per visit, $k_m$ is atmospheric extinction coefficient, and $X$ is the boresight airmass. 
-The quantity \cm\ encodes all the system properties and does not depend on observing conditions.\footnote{It is \cm\ that is constrained by the requirements listed in Tables 5 and 6 of the \SRD.}
+The quantity \cm\ encodes all the system properties and does not depend on observing conditions.\footnote{It is \cm\ that is constrained by the requirements listed in Tables 5 and 6 of the SRD.}
 %\href{https://docushare.lsst.org/docushare/dsweb/Get/LSE-40}{\textcolor[HTML]{1155CC}{LSE-40}}}. 
 %The current best estimates of \cm, computed by subtracting the correction terms on the right hand side of \autoref{eq:Cm} from estimated values of \mf, are listed in \autoref{tab:SRDm5} (row 6). These \cm\ values can be used  to estimate limiting image depth for arbitrary observing conditions (as discussed in the next section). 
 %If predicted \mf\ accuracy at a few percent level (i.e., 0.02 mag) is required, and values of
@@ -274,7 +274,7 @@ Our early estimates of the impact of sky brightness variation and
 seeing degradation due to non-zenith observations were based on
 assuming a median airmass of $X=1.2$ and a sky brightness variation
 amplitude of $\sim$0.4 mag resulting in median sky brightness brighter
-by 0.2 mag compared to the fiducial values, and a combined $\Delta m \sim-0.1 {~\rm mag}$. The SRD estimate of the magnitude loss associated with observations away from $X=1$ were, in fact, conservative ($\Delta m\sim -0.2\ {\rm to} -0.3$ mag, see the caption of Table 24 in \SRD). However, additional corrections can now be included, such as the impact of observing in different lunar phases, leading to magnitude losses ranges $\Delta m\sim -0.2\ {\rm to} -0.5$ mag compared to observations conducted in idealized, fiducial conditions.
+by 0.2 mag compared to the fiducial values, and a combined $\Delta m \sim-0.1 {~\rm mag}$. The SRD estimate of the magnitude loss associated with observations away from $X=1$ were, in fact, conservative ($\Delta m\sim -0.2\ {\rm to} -0.3$ mag, see the caption of Table 24 in SRD). However, additional corrections can now be included, such as the impact of observing in different lunar phases, leading to magnitude losses ranges $\Delta m\sim -0.2\ {\rm to} -0.5$ mag compared to observations conducted in idealized, fiducial conditions.
 %\red{Fed - are we thinking the same thing about 'conservative' here? The SRD estimates of 0.2 to 0.3 mag losses for X>1 aren't terrible compared to what we find, but we find 0.2-0.5 mag losses when you include lunar phase, which was kind of implied with the SRD estimates .. maybe it's better to be charitable and say the SRD didn't include the effects of lunar phase at all and were leaving it out on purpose?}
 
 \begin{figure}
@@ -410,8 +410,8 @@ Cm & reference &  23.46 &  24.45 & 24.45 &  24.35 &   24.19 &  23.75 \\
 With the survey simulations in hand, we can also calculate the expected coadded depth in each band. The final coadded depth is dependent on the number of visits acquired at any point in the sky, as well as on the individual image depths. These quantities are strongly dependent on survey strategy, although they are flexible within the limitations set by the total survey lifetime, minimum survey area, and observing duty-cycle requirements.
 
 There is a trade-off between the total number of visits per field and the area covered to a specified depth. 
-The \SRD\ specifies minimum and design values for both the area covered and the median number of visits per pointing over that area in Tables 22 and 23: a minimum values corresponding to a median of 750 visits per pointing over 15,000 sq. degrees and design values of 825 visits per pointing over 18,000 sq. degrees. This footprint and the corresponding survey are referred to as the ``Wide Fast Deep'', hereafter WFD. In  \baseline, 18,620 sq. degrees of sky receive at least 750 observations, with a median value of 829 visits per pointing over the same area.  Conversely, an 18,000 square degrees area receives a median of 839 visits.
-This represents an increase in footprint and number of visits over the illustrative values stated in the \SRD. The per-band median number of visits per pointing over the 18,620 sq. degree WFD footprint are listed in \autoref{tab:wfd_nvis}, together with the resulting coadded depths calculated using the pointing histories simulated in \baseline. 
+The SRD\ specifies minimum and design values for both the area covered and the median number of visits per pointing over that area in Tables 22 and 23: a minimum values corresponding to a median of 750 visits per pointing over 15,000 sq. degrees and design values of 825 visits per pointing over 18,000 sq. degrees. This footprint and the corresponding survey are referred to as the ``Wide Fast Deep'', hereafter WFD. In  \baseline, 18,620 sq. degrees of sky receive at least 750 observations, with a median value of 829 visits per pointing over the same area.  Conversely, an 18,000 square degrees area receives a median of 839 visits.
+This represents an increase in footprint and number of visits over the illustrative values stated in the SRD. The per-band median number of visits per pointing over the 18,620 sq. degree WFD footprint are listed in \autoref{tab:wfd_nvis}, together with the resulting coadded depths calculated using the pointing histories simulated in \baseline. 
 
  
   As part of the SCOC work to define the survey footprint used for \baseline, trades between total area covered and number of visits per pointing were considered (see \href{https://pstn-053.lsst.io}{\textcolor[HTML]{1155CC}{PSTN-053}}). The current footprint represents the result of this optimization and meets and exceeds the design requirements.
@@ -438,7 +438,7 @@ number of visits &25th percentile &  53.0 &  70.0 &  178.0 &  181.0 &  160.0 &  
 
 \FloatBarrier
 
-%This corresponds to a median of 838 total visits. This value is between the {\it design} (845) and {\it minimum} (750) specifications included in the \SRD, but with an increase in sky coverage.
+%This corresponds to a median of 838 total visits. This value is between the {\it design} (845) and {\it minimum} (750) specifications included in the SRD, but with an increase in sky coverage.
 
  
 \section{Further optimization options}
@@ -452,7 +452,7 @@ bands.
 
 This could increase the \mf\ in some bands, at the cost of a decrease in others.
  
- A substantive fraction of the visits in \baseline\ were, in fact, collected as part of mini-surveys (see  \href{https://ls.st/lop}{\textcolor[HTML]{1155CC}{LSST Overview}} paper), and these observations could be redirected, if desired, to cover the WFD footprint in the main LSST survey, thus increasing the coadded \mf. In the \baseline, the fraction of images collected as part of surveys other than the WFD corresponds to about  $\sim34\%$. This implies that, in principle, the \baseline\ WFD has a ``reserve'' corresponding to $\sim280$ images per field.  The decision of reassigning these images to the WFD requires analyzing and balancing  science priorities, and the SCOC is charged with performing this balancing exercise. Similarly, the distribution of visits between filters is under consideration by the SCOC.  The distribution shown in \autoref{tab:wfd_nvis} reflects current SCOC guidance, and also generally matches the illustrative distribution provided in Table 24 of the \SRD. 
+ A substantive fraction of the visits in \baseline\ were, in fact, collected as part of mini-surveys (see  \href{https://ls.st/lop}{\textcolor[HTML]{1155CC}{LSST Overview}} paper), and these observations could be redirected, if desired, to cover the WFD footprint in the main LSST survey, thus increasing the coadded \mf. In the \baseline, the fraction of images collected as part of surveys other than the WFD corresponds to about  $\sim34\%$. This implies that, in principle, the \baseline\ WFD has a ``reserve'' corresponding to $\sim280$ images per field.  The decision of reassigning these images to the WFD requires analyzing and balancing  science priorities, and the SCOC is charged with performing this balancing exercise. Similarly, the distribution of visits between filters is under consideration by the SCOC.  The distribution shown in \autoref{tab:wfd_nvis} reflects current SCOC guidance, and also generally matches the illustrative distribution provided in Table 24 of the SRD. 
 
  
 The derived estimates of \mf\ presented in \autoref{tab:bl1} assume two exposures per visit to a combined $t_{vis}=30$~seconds, except in $u$ band. Abolishing the two-snap strategy would provide an improvement in efficiency via a decrease in overtime by about 8\%. This time could be used to increase the observed footprint, the number of visits for pointing, or the total exposure in all or some bands. Each one of these choices, however, should also be vetted against the resulting image quality, image processing requirements, and overall scientific throughput of the survey. 
