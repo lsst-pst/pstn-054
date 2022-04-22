@@ -359,24 +359,22 @@ The per filter corrections applied to \mf\ reference via \autoref{eq:Cm} and \au
  \begin{tabular}{llrrrrrr}
  \hline
  {} & &             u &      g &  r &   i &     z &      y \\
- \hline
- \mf & reference &    23.87  &  24.64 & 24.21 &  23.79 & 23.18 &  22.37\\
-%&per amp rms          &   0.10 &   0.08 &   0.17 &   0.08 &   0.12 &   0.08 \\
- \hline
+\hline
+\mf &  reference &  23.87 &  24.64 &  24.21 &  23.79 &  23.18 &  22.37 \\
+\hline
+\hline
+Cm & reference &  23.46 &  24.45 &  24.45 &  24.35 &  24.19 &  23.75 \\
+ &per amp median       &  23.64 &  24.58 &  24.56 &  24.42 &  24.23 &  23.75 \\
+& per amp IQR          &   0.15 &   0.08 &   0.08 &   0.04 &   0.03 &   0.06 \\
+\hline
+ $\Delta C_m^\infty$ & reference       &   0.28 &   0.15 &   0.09 &   0.06 &   0.04 &   0.03 \\
+ & per amp median  &   0.15 &   0.07 &   0.04 &   0.03 &   0.02 &   0.02 \\
+ & per amp IQR     &   0.07 &   0.03 &   0.02 &   0.01 &   0.01 &   0.00 \\
   \hline
-Cm & reference &  23.46 &  24.45 & 24.45 &  24.35 &   24.19 &  23.75 \\
- &per amp median &   23.64 &  24.57 & 24.56 &24.42 &    24.23 &  23.75 \\
- &per amp IQR          &    0.17 &   0.10 & 0.09 &    0.05 &   0.03 &   0.05 \\
   \hline
-  $\Delta C_m^\infty$& reference       &     0.28&   0.15 &  0.09 &  0.06 &   0.04  &   0.03 \\
- &per amp median        &        0.16  &   0.07 &  0.04 & 0.03 & 0.02&   0.02 \\
- &per amp IQR     &       0.08  &   0.04 &  0.02 &  0.01 & 0.01 &   0.01\\
- \hline
-  \hline
-\mf &reference, corrected              &     24.05 &  24.76 &  24.32 & 23.86 & 23.22 &  22.37 \\
-&simulated, corrected              &     23.80 &  24.50 & 24.03 & 23.41& 22.74 & 21.97\\
-  \hline
- \end{tabular}
+\mf & reference, corrected       &  24.05 &  24.77 &  24.32 &  23.86 &  23.22 &  22.37 \\
+&simulated median, corrected    &  23.80 &  24.50 &  24.03 &  23.41 &  22.74 &  21.96 \\ 
+\end{tabular}
 \end{table}
 \FloatBarrier
 \clearpage
@@ -396,7 +394,7 @@ Cm & reference &  23.46 &  24.45 & 24.45 &  24.35 &   24.19 &  23.75 \\
 \begin{figure}[!hb]
     \centering
 
-\includegraphics[width=0.4\textwidth]{figures/ccdplaneU.png}\includegraphics[width=0.4\textwidth]{figures/ccdplaneY.png}\includegraphics[height=0.4\textwidth]{figures/colorbar.png}
+\includegraphics[width=0.4\textwidth]{figures/u_focal_plane}\includegraphics[width=0.4\textwidth]{figures/y_focal_plane}%\includegraphics[height=0.4\textwidth]{figures/colorbar.png}
 \caption{The $u$ (left) and $y$ band (right) $\Delta Cm$ corrections associated with read-noise, QE, and vignetting effects for each amplifier in the LSST DOE camera CCD plane. The $u$ and $y$ bands represent the most extreme and most modest correction and correction IQR values, respectively (see \autoref{tab:bl3}).}\label{fig:ccdplane}
 \end{figure}
  \FloatBarrier
