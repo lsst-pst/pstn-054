@@ -383,7 +383,7 @@ Cm & reference &  23.46 &  24.45 &  24.45 &  24.35 &  24.19 &  23.75 \\
 \begin{figure}[!ht]
 \centering
 \includegraphics[width=0.53\textwidth]{figures/ampnoise.pdf}
-\caption{Focal plane readout-noise values or the 3024 amplifiers on the CCD plane of the LSST DOE camera. The values reported are from Camera I\&T BOT Run 13283 (a standard ``B'' image sequence analyzed with the Camera eotest package, taken with the v26 Sequencer files with the timing established as the default for BOT images.  This run was also used for Camera Requirement Verification). The median noise is measured to be well below the requirement of 9~$e^-$/pixel/readout, at $\sim$5.5~$e^-$/pixel/readout. The distribution shows a long tail with 95\% of the amplifiers within 9~$e^-$/pixel/readout (one amplifier with overall poor performance that contributes to the tail, however, will not be used and, for all others, the noise is contained to <18~$e^-$/pixel/readout). Vertical lines mark the median and nominal 9~$e^-$/pixel/readout noise values, a horizontal line marks the location of the 3024-{\it th} amplifier, and the top of the cumulative distribution.}\label{fig:rndist}
+\caption{Focal plane readout-noise values or the 3024 amplifiers on the CCD plane of the LSST DOE camera. The values reported are from Camera Integration and Testing BOT Run 13283 (based on bias images taken using Version 26 sequencers with the full camera in operation and analyzed with the Camera \href{https://github.com/lsst-camera-dh/eotest}{EOTest package}.  This run was also used for Camera Requirement Verification). The median noise is measured to be well below the requirement of 9~$e^-$/pixel/readout, at $\sim$5.5~$e^-$/pixel/readout. The distribution shows a long tail with 95\% of the amplifiers within 9~$e^-$/pixel/readout (one amplifier with overall poor performance that contributes to the tail, however, will not be used and, for all others, the noise is contained to <18~$e^-$/pixel/readout). Vertical lines mark the median and nominal 9~$e^-$/pixel/readout noise values, a horizontal line marks the location of the 3024-{\it th} amplifier, and the top of the cumulative distribution.}\label{fig:rndist}
 \end{figure}
 
 
@@ -394,7 +394,7 @@ Cm & reference &  23.46 &  24.45 &  24.45 &  24.35 &  24.19 &  23.75 \\
 \begin{figure}[!hb]
     \centering
 
-\includegraphics[width=0.4\textwidth]{figures/u_focal_plane}\includegraphics[width=0.4\textwidth]{figures/y_focal_plane}%\includegraphics[height=0.4\textwidth]{figures/colorbar.png}
+    \includegraphics[width=0.35\textwidth]{figures/ccdplaneU}\includegraphics[width=0.35\textwidth]{figures/ccdplaneY}\includegraphics[height=0.36\textwidth]{figures/colorbar.png}
 \caption{The $u$ (left) and $y$ band (right) $\Delta Cm$ corrections associated with read-noise, QE, and vignetting effects for each amplifier in the LSST DOE Camera CCD plane. The $u$ and $y$ bands represent the most extreme and most modest correction and correction IQR values, respectively (see \autoref{tab:bl3}).}\label{fig:ccdplane}
 \end{figure}
  \FloatBarrier
