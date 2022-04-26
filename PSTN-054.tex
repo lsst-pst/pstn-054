@@ -345,7 +345,7 @@ $\Delta m$ seeing \fwhme &median          &   -0.12 &   -0.14 &   -0.14 &   -0.1
 
 
 \subsection{Realistic per-amplifier characteristics and related corrections}\label{per-amp}
-In all of the work described above, the read-noise and Quantum Efficiency (QE) curve have been assumed to be constant across the entire focal plane. In reality, each CCD chip will have slightly different QE curves and each amplifier will have a different read-noise value. Notably, Rubin's camera uses CCD chips produced by two different vendors, which have different characteristic QE and read-noise values. Vignetting effects also impact the limiting magnitudes near the edges of the field of view.  As mentioned earlier, assuming 8.8 e$^-$/pixel/read-out as the single read-noise value is a conservative choice as the median noise per amp is significantly lower (\autoref{fig:rndist}). The QE values, used in the presented calculations assume a ``joint'' vendor QE curve, which is defined as the minimum QE value at each wavelength; as such, it does not truly represent the expected performance as a function of wavelength for either vendor, but rather the likely most conservative estimate. For the filter throughput curves, vendors estimates are adopted.
+In all of the work described above, the read-noise and Quantum Efficiency (QE) curve have been assumed to be constant across the entire focal plane. In reality, each CCD chip will have slightly different QE curves and each amplifier will have a different read-noise value. Notably, Rubin's camera uses CCD chips produced by two different vendors, which have different characteristic QE and read-noise values. Vignetting effects also impact the limiting magnitudes near the edges of the field of view.  As mentioned earlier, assuming 8.8 e$^-$/pixel/read-out as the single read-noise value is a conservative choice as the median noise per amp is significantly lower (\autoref{fig:rndist}). The QE values, used in the presented calculations assume a ``joint'' vendor QE curve, which is defined as the minimum QE value at each wavelength; as such, it does not truly represent the expected performance as a function of wavelength for either vendor, but rather the likely most conservative estimate. For the filter throughput curves, the filter requirements, encoded in the \href{https://github.com/lsst-pst/syseng_throughputs}{{\tt syseng\_throughputs}}, are adopted.
 
 As CCDs have been delivered to the project, measurements of the expected read-noise and QE curves have been carried out for each amplifier. While incorporating these per-amp measurements in the 10-year survey simulations would be computationally impractical, slowing down the simulations significantly, their effect can be encoded through \autoref{eq:Cm} and \autoref{eq:dCm} applied to the \mf\ reference from which the simulations are derived, assuming median values. Applying $\Delta m$ combined (as shown in \autoref{tab:bl2}) as an additive factor to the ``\mf\ reference, corrected'' values reported in \autoref{tab:bl3} would lead to a new,  ``\mf\ simulated corrected'', representing the final expected single-image depths based on \baseline\ (reported in \autoref{tab:bl3}).
 
@@ -363,7 +363,7 @@ The per filter corrections applied to \mf\ reference via \autoref{eq:Cm} and \au
 \mf &  reference &  23.87 &  24.64 &  24.21 &  23.79 &  23.18 &  22.37 \\
 \hline
 \hline
-Cm & reference &  23.46 &  24.45 &  24.45 &  24.35 &  24.19 &  23.75 \\
+\cm & reference &  23.46 &  24.45 &  24.45 &  24.35 &  24.19 &  23.75 \\
  &per amp median       &  23.64 &  24.58 &  24.56 &  24.42 &  24.23 &  23.75 \\
 & per amp IQR          &   0.15 &   0.08 &   0.08 &   0.04 &   0.03 &   0.06 \\
 \hline
@@ -455,7 +455,7 @@ bands. This would increase the \mf\ in some bands, at the cost of a decrease in 
  
 The derived estimates of \mf\ presented in \autoref{tab:bl1} assume two exposures per visit to a combined $t_{vis}=30$~seconds, except in $u$ band. Abolishing the two-snap strategy would provide an improvement in efficiency via a decrease in overtime by about 8\%. This time could be used to increase the observed footprint, the number of visits for pointing, or the total exposure in all or some bands. Each one of these choices, however, should also be vetted against the resulting image quality, image processing requirements, and overall scientific throughput of the survey. 
  
-Finally, the reported expected \mf\ values assume current estimates of the mirrors' reflectivities, as discussed in \autoref{sec:SRD}, which are still being optimized, filter coating reflectivities which will ultimately be updated with current measurements, as well as a surveying efficiency that remains to be demonstrated after the observatory is completed and enters its operations phase. 
+Finally, the reported expected \mf\ values assume current estimates of the mirrors' reflectivities, as discussed in \autoref{sec:SRD}, which are still being optimized, filter coating transmission functions which will soon be updated with as-built measurements, as well as a surveying efficiency that remains to be demonstrated after the observatory is completed and enters its operations phase. 
 
 % You can also use the \input command to include several content files.
 
