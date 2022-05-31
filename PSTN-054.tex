@@ -74,17 +74,17 @@ As our knowledge of the as-buit system continues to improve, updates to these es
 The \href{https://docushare.lsst.org/docushare/dsweb/Get/LPM-17}{{LSST System Science Requirements Document}} (LPM-17, hereafter SRD) lists the science-driven requirements for the data products to be delivered by LSST. 
 Engineering requirements for each technical subsystem of the Rubin Observatory have been derived from this document. 
 
-The required overall system throughput is specified by requirements listed in the \href{https://docushare.lsst.org/docushare/dsweb/Get/LPM-17}{{SRD}} Tables 5 and 6. 
+The required overall system throughput is specified by requirements listed in the \href{https://docushare.lsst.org/docushare/dsweb/Get/LPM-17}{{SRD}} Tables 5 and 6 (also reported in Table 1 of \citealt{2019ApJ...873..111I}). 
 Those requirements primarily constrain the effective primary mirror diameter and overall (hardware $+$ atmosphere) 
 system throughput ({\it e.g.}, mirror surface reflectivity, sensor quantum efficiency). For ease of interpretation, 
 Tables 5 and 6 express these requirements in terms of limiting image depth, \mf\ (defined as a magnitude at which 
-optimal photometric signal-to-noise ratio SNR=5 is attained), corresponding to {\bf fiducial} observing parameters. These fiducial parameters 
+a photometric signal-to-noise ratio SNR=5 is attained), corresponding to {\bf fiducial} observing parameters. These fiducial parameters 
 include exposure time per visit (2$\times$15 sec), delivered $r$-band seeing (0.7 arcsec), boresight airmass ($X=1$) and $r$-band sky brightness (14.5 mJy arcsec$^{-2}$, equivalent to 
 21 AB mag arcsec$^{-2}$). 
 
 While these fiducial values were chosen to approximately correspond to realistic observing conditions, the \mf\ values listed in Tables 5 and 6 should {\bf not} be interpreted as expected LSST single-visit depths (for example, 
-the telescope cannot even point towards the zenith, and the fiducial sky brightness is approximately equivalent to 
-astronomical {\it dark} sky brightness). In \autoref{sec:SRD} we derive the relevant quantities related to the SRD requirements with updated system and hardware components information. To predict the single-visit depth distribution and co-added image depth, 
+the telescope cannot even point towards the zenith such that $X>1$ for all osbervations, and the fiducial sky brightness is approximately equivalent to 
+astronomical {\it dark} sky brightness). In \autoref{sec:SRD} we derive the relevant quantities related to the SRD requirements with updated system and hardware component information. To predict the single-visit depth distribution and co-added image depth, 
 cadence simulations that account for the variation of anticipated observing conditions are needed. These simulations are discussed 
 in \autoref{sec:cadence}. Finally, we discuss potential venues for optimization of the hardware elements and survey and the impact they would have on image depth in \autoref{sec:optimize}.
 
@@ -105,7 +105,10 @@ The sky brightness is converted to a per-band sky brightness using the dark sky 
 
 \autoref{tab:SRDm5} lists the minimum and design SRD requirements for \mf\ (rows 1 and 2) and current best estimates for anticipated system performance for all six LSST bands ($ugrizy$, rows 3).We refer to the \mf\ thus calculated as  ``\mf\ SRD estimated''. Estimation of these \mf\ values assumes $X=1$ and a total visit exposure time of 30 seconds, split between two 15-second exposures (2x15 sec ``snaps''). The performance of each component in the hardware systems is based on the values kept up-to-date in the Rubin \href{https://github.com/lsst-pst/syseng_throughputs}{{\tt syseng\_throughputs}} package, version 1.7. {The  reflectivity curves of the system optical surfaces are encoded in this package. It is assumed that the primary ({\it M1}), secondary ({\it M2}), and tertiary ({\it M3}) mirrors are coated with aluminium, silver, and aluminium respectively, and reflectivity estimates are based on measurements from coating samples from June 2019.}
 
-We derive the estimates of \mf\ setting a readout noise equal to the system requirements readout noise across the entire CCD plane (see \href{https://docushare.lsst.org/docushare/dsweb/Get/LSE-59}{{LSE-59}}). These requirements are for a maximum readout noise of 9 e$^-$/pixel/read-out.\footnote{As the total readout budget includes an estimated 0.2  e$^-$/pixel/read-out of dark currrent, the readout noise is actually assumed to be 8.8  e$^-$/pixel/read-out. This, however, generates negligible differences.} This is a conservative choice, as the median readout noise is now measured to be well below system requirements (between 5 and 6  e$^-$/pixel/read-out, see \autoref{per-amp}).  
+We derived the estimates of \mf\ setting a readout noise equal to 8.8  e$^-$/pixel/read-out. This corresponds to asusuming readout noise equal to the system requirements readout noise across the entire CCD plane (see \href{https://docushare.lsst.org/docushare/dsweb/Get/LSE-59}{{LSE-59}}). \footnote{
+These requirements are for a maximum readout noise of 9 e$^-$/pixel/read-out, but include an estimated 0.2  e$^-$/pixel/read-out of dark currrent. Using 8.8 or 9 e$^-$/pixel/read-out, however, generates negligible differences.}
+%We derived the estimates of \mf\ setting a readout noise equal to the system requirements readout noise across the entire CCD plane (see \href{https://docushare.lsst.org/docushare/dsweb/Get/LSE-59}{{LSE-59}}). These requirements are for a maximum readout noise of 9 e$^-$/pixel/read-out.\footnote{As the total readout budget includes an estimated 0.2  e$^-$/pixel/read-out of dark currrent, the readout noise is actually assumed to be 8.8  e$^-$/pixel/read-out. This, however, generates negligible differences.}
+This is a conservative choice, as the median readout noise is now measured to be well below system requirements (between 5 and 6  e$^-$/pixel/read-out, see \autoref{sec:per-amp}). Measured, per-amplifier read-out noise values will be incorporated in the \mf\ estimates in \autoref{sec:per-amp}.
 
 
 \begin{table}[ht!]
@@ -118,13 +121,13 @@ We derive the estimates of \mf\ setting a readout noise equal to the system requ
 \hline    
 row & {\mf} &       u &       g &       r &       i &       z &       y \\
 \hline
-1 & SRD design                 &  23.90 &  25.00 &  24.70 &  24.00 &  23.30 &  22.10 \\
-2 & SRD minimum                &  23.40 &  24.60 &  24.30 &  23.60 &  22.90 &  21.70 \\
+1 & \mf\ SRD design                 &  23.90 &  25.00 &  24.70 &  24.00 &  23.30 &  22.10 \\
+2 & \mf\ SRD minimum                &  23.40 &  24.60 &  24.30 &  23.60 &  22.90 &  21.70 \\
 3 & \mf\ SRD estimated         &  24.23 &  25.08 &  24.58 &  24.15 &  23.58 &  22.70 \\
 %&median per-amp \mf\ SRD estimated &  23.97 & 24.97 & 24.55 & 24.11 & 23.53 &  22.50 \\
 \hline
-4 & seeing                     &   0.77 &   0.73 &   0.70 &   0.67 &   0.65 &   0.63 \\
-5 & skybrightness              &  22.72 &  22.07 &  21.00 &  20.27 &  19.39 &  18.43 \\
+4 & seeing (arcsec)                    &   0.77 &   0.73 &   0.70 &   0.67 &   0.65 &   0.63 \\
+5 & skybrightness  (mag/arcsec$^2$)            &  22.72 &  22.07 &  21.00 &  20.27 &  19.39 &  18.43 \\
 \hline
 %6 & $C_m$ estimated              &  23.47 &  24.59 &  24.58 &  24.47 &  24.30 &  23.87 \\
 %8 & {median per-amp \cm\ estimated }&  23.21 &  24.48 &  24.55 &  24.43 &  24.25 &  23.67 \\
@@ -151,7 +154,7 @@ all bands, these estimated \mf\ values imply that the design SRD depths can be
 reached with only 73.7\% of nominal observing time, implying a ``throughput reserve''
 of 26.3\%. The minimum SRD depths can be reached with only 34.8\% of nominal observing time.
 
-{\bf To iterate, the current throughput estimates (and thus the \mf\ estimated values) compare favorably with the SRD requirements on limiting magnitude, with estimated values exceeding the minimum requirements in all bands and overperforming the design requirements in all bands but $r$.} However,
+{\bf To reiterate, the current throughput estimates (and thus the \mf\ estimated values) compare favorably with the SRD requirements on limiting magnitude, with estimated values exceeding the minimum requirements in all bands and overperforming the design requirements in all bands but $r$.} However,
 the values of \mf\ computed for these {\bf fiducial} observing conditions, as codified in the SRD,
 should {\bf not} be interpreted as typical image depths expected for the LSST data. 
 
@@ -182,7 +185,7 @@ An estimate of the average lifetime losses in throughput due to aging and system
 
 
 
-The visits in $u$ band are currently projected to be collected as single exposure of 30 sec, while all other bands use two 15-sec back-to-back exposures to obtain a combined visit time of 30 sec. This choice limits the impact of the read-out noise, which in $u$ is not negligible compared to the background noise due to the faintness of the $u$ band sky (\autoref{fig:bv2distributions}). %This effect is also included in the calculation of \mf\ from \cm\ via \autoref{eq:dCm}, and 
+The visits in $u$ band are currently projected to be collected as a single exposure of 30 sec, while all other bands use two 15-sec back-to-back exposures to obtain a combined visit time of 30 sec. This choice limits the impact of the read-out noise, which in $u$ is not negligible compared to the background noise due to the faintness of the $u$ band sky (\autoref{fig:bv2distributions}). %This effect is also included in the calculation of \mf\ from \cm\ via \autoref{eq:dCm}, and 
 This generates an improvement in $u$ band depth  shown in \autoref{tab:bl1} as  ``$\Delta m$ 1x30s $u$-band''.
 
 A small update in the expected dark sky background is applied, resulting in a small change in \mf. This update brings the sky background to the dark sky values used in the cadence simulations, where the sky brightness is modeled as in \href{https://www.osti.gov/biblio/1784946}{{\citet{osti_1784946}}} (``$\Delta m$ dark sky update''). 
@@ -229,14 +232,14 @@ The values listed in \autoref{tab:bl1} as ``$\Delta m$ combined'' represent the 
 
 The distribution of observing conditions can be estimated with the aid of cadence simulations.  In the on-going process of optimizing the survey strategy~\citep{Bianco_2021}, Rubin Observatory produced hundreds of simulations of the 10-year survey with updated realistic expectations for the weather, seeing, and downtime distributions.  The survey simulations implement a cadence strategy and derive the resulting pointings and image property for each visit \citep{2019AJ....157..151N, 2016SPIE.9910E..13D, 2014SPIE.9150E..15D}. 
 Given information about the system throughput, the image depth can be estimated for arbitrary observing conditions. The impact of observing conditions on limiting depth 
-can be gauged from the following expression (see section 3.2 in
+can be gauged from the following expression (see section 3.2 in the 
 \href{https://ls.st/lop}{{LSST Overview}} paper): 
 \begin{equation}
 \label{eq:Cm}
 m_5 = \cm + 0.5\,(m_{\rm sky} - 21) + 2.5\,\log_{10}\left(\frac{0.7 \, {\rm arcsec}}{\theta}\right) + 1.25\,\log_{10}\left(\frac{t_{\rm vis}}{ 30 \, {\rm sec}}\right) - k_m\,(X-1) + \Delta\cm(\tau),
 \end{equation}
 where $m_{\rm sky}$ is the sky brightness (AB mag arcsec$^{-2}$), $\theta$ is seeing, $t_{\rm vis}$ is exposure 
-time per visit, $k_m$ is atmospheric extinction coefficient, and $X$ is the boresight airmass. 
+time per visit, $k_m$ is the atmospheric extinction coefficient, and $X$ is the boresight airmass. 
 The quantity \cm\ encodes all the system properties and does not depend on observing conditions.  For the fiducial observing conditions discussed in \autoref{sec:SRD}, \cm=\mf.\footnote{It is \cm\ that is constrained by the requirements listed in Tables 5 and 6 of the SRD.}
 %\href{https://docushare.lsst.org/docushare/dsweb/Get/LSE-40}{\textcolor[HTML]{1155CC}{LSE-40}}}. 
 %The current best estimates of \cm, computed by subtracting the correction terms on the right hand side of \autoref{eq:Cm} from estimated values of \mf, are listed in \autoref{tab:SRDm5} (row 6). These \cm\ values can be used  to estimate limiting image depth for arbitrary observing conditions (as discussed in the next section). 
@@ -265,17 +268,17 @@ The cadence simulations use a model to describe the expected sky brightness as a
 \href{https://github.com/lsst/rubin_sim/tree/main/rubin_sim/skybrightness}{{\tt rubin\_sim SkyBrightness} module}. 
 Similarly, the simulations can provide seasonally appropriate, expected per-band delivered seeing estimates. %The current atmospheric contribution to the seeing distribution is described in detail in \href{https://rtn-022.lsst.io}{\textcolor[HTML]{1155CC}{RTN-022}}. \href{https://docushare.lsst.org/docushare/dsweb/Get/Document-20160}{\textcolor[HTML]{1155CC}{Document-20160}} describes how to combine the atmospheric component with the contributions from the telescope and dome to result in the delivered PSF. 
  
- The most recent set of simulations (referred to as \texttt{v2.0}) arises from the recommendations of the Survey Cadence Optimization Committee (SCOC\footnote{The structure of the SCOC is described at \href{https://www.lsst.org/content/charge-survey-cadence-optimization-committee-scoc}{https://www.lsst.org/content/charge-survey-cadence-optimization-committee-scoc}. In the same page, the ongoing activities of the SCOC are documented.}) {which is charged with the responsibility to balanced community inputs and science priorities, examining the impact that observing choices have on the survey's scientific throughput, as assess by the scientific community itself. A science-driven survey optimization requires control over many survey parameters, including constraints on image quality through seeing and sky brightness, which directly impact image depth, but also choices such as cadence and filter alternation that, while not directly affecting image depth, provide additional constraints on the sky location to be observed}. Hereafter we use the latest baseline cadence simulation v2.0 
+ The most recent set of simulations (referred to as \texttt{v2.0}) arises from the recommendations of the Survey Cadence Optimization Committee (SCOC\footnote{The structure of the SCOC is described at \href{https://www.lsst.org/content/charge-survey-cadence-optimization-committee-scoc}{https://www.lsst.org/content/charge-survey-cadence-optimization-committee-scoc}. In the same page, the ongoing activities of the SCOC are documented.}) {which is charged with the responsibility to balanced community inputs and science priorities, examining the impact that observing choices have on the survey's scientific throughput, as assess by the scientific community itself. A science-driven survey optimization requires control over many survey parameters. These include constraints on image quality through seeing and sky brightness, which directly impact image depth, but also choices such as cadence and filter alternation that provide additional constraints on the sky location to be observed, which in turn affects the depth of an image}. Hereafter we use the latest baseline cadence simulation v2.0 
 (\baseline) to derive the expected \mf\ from \cm. Throughout this simulation, %, read-out noise is assumed to be 8.8 e$^-$/pixel/read-out and the 
 exposure time is assumed to be 30 seconds, split into two 15 seconds snaps for each filter except $u$. Contributions to the difference in the {\it simulated} per-visit \mf\ compared to the reference \mf\ (as derived in \autoref{sec:Cm} and reported in \autoref{tab:bl1}) are listed separately in \autoref{tab:bl2} for airmass, sky brightness, and seeing, together with the median simulated \mf.
  
- The seeing, airmass, and sky brightness distribution associated with dropping the fiducial requirement of observing at $X=1$ and including a distribution of observing conditions as generated by the survey simulations are shown in \autoref{fig:bv2distributions} and also reported in~\autoref{tab:bl2}, including their median and 25th/75th percentile values over the 10 years of the \baseline\ survey for each bandpass. Their combined contribution is reported as ``$\Delta m$ combined''. Note that, as the simulated \mf\ is measured directly as the median \mf\ of the simulated observations, small inconsistencies between this value and the value calculated by adding the median $\Delta m$'s reported in \autoref{tab:bl2} to the reference \mf\ are to be expected, in part due to the non-gaussian nature of the skybrightness distributions.
+ The seeing, airmass, and sky brightness distribution associated with dropping the fiducial requirement of observing at $X=1$ and including a distribution of observing conditions as generated by the survey simulations are shown in \autoref{fig:bv2distributions} and also reported in~\autoref{tab:bl2}, including their median and 25th/75th percentile values over the 10 years of the \baseline\ survey for each bandpass. Their combined contribution is reported as ``$\Delta m$ combined''. Note that, as the simulated \mf\ is measured directly as the median \mf\ of the simulated observations, small inconsistencies between this value and the value calculated by adding the median $\Delta m$'s reported in \autoref{tab:bl2} to the reference \mf\ are to be expected, in part due to the non-gaussian nature of the sky brightness distributions.
  
 Our early estimates of the impact of sky brightness variation and
 seeing degradation due to non-zenith observations were based on
 assuming a median airmass of $X=1.2$ and a sky brightness variation
-amplitude of $\sim$0.4 mag resulting in median sky brightness brighter
-by 0.2 mag compared to the fiducial values, and a combined $\Delta m \sim-0.1 {~\rm mag}$. The SRD estimate of the magnitude loss associated with observations away from $X=1$ were, in fact, conservative ($\Delta m\sim -0.2\ {\rm to} -0.3$ mag, see the caption of Table 24 in SRD). However, additional corrections can now be included, such as the impact of observing in different lunar phases, leading to magnitude losses ranges $\Delta m\sim -0.2\ {\rm to} -0.5$ mag compared to observations conducted in idealized, fiducial conditions.
+amplitude of $\sim$0.4 mag. This resulted in a median sky brightness brighter
+by 0.2 mag compared to the fiducial values. The SRD estimate of the magnitude loss associated with observations away from $X=1$ were, in fact, conservative ($\Delta m\sim -0.2\ {\rm to} -0.3$ mag, see the caption of Table 24 in SRD). However, additional corrections can now be included, such as the impact of observing in different lunar phases, leading to magnitude losses ranges $\Delta m\sim -0.2\ {\rm to} -0.5$ mag compared to observations conducted in idealized, fiducial conditions.
 %\red{Fed - are we thinking the same thing about 'conservative' here? The SRD estimates of 0.2 to 0.3 mag losses for X>1 aren't terrible compared to what we find, but we find 0.2-0.5 mag losses when you include lunar phase, which was kind of implied with the SRD estimates .. maybe it's better to be charitable and say the SRD didn't include the effects of lunar phase at all and were leaving it out on purpose?}
 
 \begin{figure}
@@ -285,7 +288,7 @@ by 0.2 mag compared to the fiducial values, and a combined $\Delta m \sim-0.1 {~
 
 \includegraphics[width=0.43\textwidth]{figures/baseline_v2_0_10yrs_Count_skyBrightness_u_g_r_i_z_y_ONED_ComboBinnedData.pdf}
 \includegraphics[width=0.43\textwidth]{figures/baseline_v2_0_10yrs_Count_fiveSigmaDepth_u_g_r_i_z_y_ONED_ComboBinnedData.pdf}
-\caption{Distribution of airmass, seeing, sky brightness, and \mf\ for the 10-year LSST survey simulated in \baseline.}\label{fig:bv2distributions}
+\caption{Distribution of airmass, seeing, sky brightness, and \mf\ for the 10-year LSST survey simulated in \baseline, including Wide-Fast-Deep and minisurveys within.}\label{fig:bv2distributions}
 \end{figure}
 \FloatBarrier
 \begin{table}
@@ -344,17 +347,17 @@ $\Delta m$ seeing \fwhme &median          &   -0.12 &   -0.14 &   -0.14 &   -0.1
  \FloatBarrier
 
 
-\subsection{Realistic per-amplifier characteristics and related corrections}\label{per-amp}
-In all of the work described above, the read-noise and Quantum Efficiency (QE) curve have been assumed to be constant across the entire focal plane. In reality, each CCD chip will have slightly different QE curves and each amplifier will have a different read-noise value. Notably, Rubin's camera uses CCD chips produced by two different vendors, which have different characteristic QE and read-noise values. Vignetting effects also impact the limiting magnitudes near the edges of the field of view.  As mentioned earlier, assuming 8.8 e$^-$/pixel/read-out as the single read-noise value is a conservative choice as the median noise per amp is significantly lower (\autoref{fig:rndist}). The QE values, used in the presented calculations assume a ``joint'' vendor QE curve, which is defined as the minimum QE value at each wavelength; as such, it does not truly represent the expected performance as a function of wavelength for either vendor, but rather the likely most conservative estimate. For the filter throughput curves, the filter requirements, encoded in the \href{https://github.com/lsst-pst/syseng_throughputs}{{\tt syseng\_throughputs}}, are adopted.
+\subsection{Realistic per-amplifier characteristics and related corrections}\label{sec:per-amp}
+In all of the work described above, the read-noise and Quantum Efficiency (QE) curve have been assumed to be constant across the entire focal plane. In reality, each CCD chip will have slightly different QE curves and each amplifier will have a different read-noise value. Notably, Rubin's camera uses CCD chips produced by two different vendors, which have different characteristic QE and read-noise values.  As mentioned earlier, assuming 8.8 e$^-$/pixel/read-out as the single read-noise value is a conservative choice as the median noise per amp is significantly lower (\autoref{fig:rndist}). The QE values used in the presented calculations assume a ``joint'' vendor QE curve, which is defined as the minimum QE value at each wavelength; as such, it does not truly represent the expected performance as a function of wavelength for either vendor, but rather the likely most conservative estimate. Vignetting effects also impact the limiting magnitudes near the edges of the field of view, and this effect has not been taken into account in the calculations presented thus far. For the filter throughput curves, the filter requirements, encoded in the \href{https://github.com/lsst-pst/syseng_throughputs}{{\tt syseng\_throughputs}}, are adopted.
 
-As CCDs have been delivered to the project, measurements of the expected read-noise and QE curves have been carried out for each amplifier. While incorporating these per-amp measurements in the 10-year survey simulations would be computationally impractical, slowing down the simulations significantly, their effect can be encoded through \autoref{eq:Cm} and \autoref{eq:dCm} applied to the \mf\ reference from which the simulations are derived, assuming median values. Applying $\Delta m$ combined (as shown in \autoref{tab:bl2}) as an additive factor to the ``\mf\ reference, corrected'' values reported in \autoref{tab:bl3} would lead to a new,  ``\mf\ simulated corrected'', representing the final expected single-image depths based on \baseline\ (reported in \autoref{tab:bl3}).
+As CCDs have been delivered to the project, measurements of the expected read-noise, QE curves, and vignetting have been carried out for each amplifier. While incorporating these per-amp measurements in the 10-year survey simulations would be computationally impractical, slowing down the simulations significantly, their effect can be encoded through \autoref{eq:Cm} and \autoref{eq:dCm} applied to the \mf\ reference from which the simulations are derived, assuming median values. Applying $\Delta m$ combined (as shown in \autoref{tab:bl2}) as an additive factor to the ``\mf\ reference, corrected'' values reported in \autoref{tab:bl3} would lead to a new,  ``\mf\ simulated corrected'', representing the final expected single-image depths based on \baseline\ (reported in \autoref{tab:bl3}).
 
-The distribution of read-noise for all camera amplifiers is shown in \autoref{fig:rndist} and the correction associated with read-noise, QE, as well as vignetting effects is shown in terms of $\Delta Cm$ in \autoref{fig:ccdplane} for each amplifier in the CCD plane in $u$ and $y$ band (where the effects are most and least significant, respectively).
+The distribution of read-noise for all camera amplifiers is shown in \autoref{fig:rndist} and the correction associated with read-noise, QE, as well as vignetting effects is shown in terms of $\Delta C_m$ in \autoref{fig:ccdplane} for each amplifier in the CCD plane in the $u$ and $y$ bands (where the effects are most and least significant, respectively).
 The per filter corrections applied to \mf\ reference via \autoref{eq:Cm} and \autoref{eq:dCm} (including the QE and vignetting in $\Delta C_m^\infty$), are also reported in \autoref{tab:bl3}, as well as how they propagate to \mf\ simulated.
 
 \FloatBarrier
 
-\begin{table}\caption{Per-amp read-noise, QE, and vignetting corrections, their mean values and Inter-Quartile Range (IQR), and their impact on \mf\ reference and \mf\ simulated.}\label{tab:bl3}
+\begin{table}\caption{Corrections associated with per-amp read-noise, QE, and vignetting, their mean values and Inter-Quartile Range (IQR) across the CCD plame, and their impact on \mf\ reference and \mf\ simulated.}\label{tab:bl3}
     \centering
  \begin{tabular}{llrrrrrr}
  \hline
@@ -409,7 +412,7 @@ The per filter corrections applied to \mf\ reference via \autoref{eq:Cm} and \au
 With the survey simulations in hand, we can also calculate the expected coadded depth in each band. The final coadded depth is dependent on the number of visits acquired at any point in the sky, as well as on the individual image depths. These quantities are strongly dependent on survey strategy, although they are flexible within the limitations set by the total survey lifetime, minimum survey area, and observing duty-cycle requirements.
 
 There is a trade-off between the total number of visits per field and the area covered to a specified depth. 
-The SRD\ specifies minimum and design values for both the area covered and the median number of visits per pointing over that area in Tables 22 and 23: a minimum values corresponding to a median of 750 visits per pointing over 15,000 sq. degrees and design values of 825 visits per pointing over 18,000 sq. degrees. This footprint and the corresponding survey are referred to as the ``Wide Fast Deep'', hereafter WFD. In  \baseline, 18,620 sq. degrees of sky receive at least 750 observations, with a median value of 829 visits per pointing over the same area.  Conversely, an 18,000 square degrees area receives a median of 839 visits.
+The SRD\ specifies minimum and design values for both the area covered and the median number of visits per pointing over that area in Tables 22 and 23: minimum values corresponding to a median of 750 visits per pointing over 15,000 sq. degrees, and design values of 825 visits per pointing over 18,000 sq. degrees. This footprint and the corresponding survey are referred to as the ``Wide Fast Deep'', hereafter WFD. In  \baseline, 18,620 sq. degrees of sky receive at least 750 observations, with a median value of 829 visits per pointing over the same area.  Conversely, an 18,000 square degree area receives a median of 839 visits.
 This represents an increase in footprint and number of visits over the illustrative values stated in the SRD. The per-band median number of visits per pointing over the 18,620 sq. degree WFD footprint are listed in \autoref{tab:wfd_nvis}, together with the resulting coadded depths calculated using the pointing histories simulated in \baseline. 
 
  
@@ -419,7 +422,7 @@ This represents an increase in footprint and number of visits over the illustrat
 \FloatBarrier
 
 \begin{table}[h!]
-\caption{WFD visits per pointing and coadded  depths. The 10-year LSST depth is reported as the median across all fields in the survey footprint in \baseline\ before and after correcting for the read-noise, QE, and vignetting effects as they vary across the CCD plane (see \autoref{tab:bl3} and  \autoref{per-amp})}\label{tab:wfd_nvis}
+\caption{WFD visits per pointing and coadded  depths. The 10-year LSST depth is reported as the median across all fields in the survey footprint in \baseline\ before and after correcting for the read-noise, QE, and vignetting effects as they vary across the CCD plane (see \autoref{tab:bl3} and  \autoref{sec:per-amp})}\label{tab:wfd_nvis}
 \small
     \centering
 \begin{tabular}{llrrrrrr}
