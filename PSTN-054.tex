@@ -83,7 +83,7 @@ include exposure time per visit (2$\times$15 sec), delivered $r$-band seeing (0.
 21 AB mag arcsec$^{-2}$). 
 
 While these fiducial values were chosen to approximately correspond to realistic observing conditions, the \mf\ values listed in Tables 5 and 6 should {\bf not} be interpreted as expected LSST single-visit depths (for example, 
-the telescope cannot even point towards the zenith such that $X>1$ for all osbervations, and the fiducial sky brightness is approximately equivalent to 
+the telescope cannot even point towards the zenith such that $X>1$ for all observations, and the fiducial sky brightness is approximately equivalent to 
 astronomical {\it dark} sky brightness). In \autoref{sec:SRD} we derive the relevant quantities related to the SRD requirements with updated system and hardware component information. To predict the single-visit depth distribution and co-added image depth, 
 cadence simulations that account for the variation of anticipated observing conditions are needed. These simulations are discussed 
 in \autoref{sec:cadence}. Finally, we discuss potential venues for optimization of the hardware elements and survey and the impact they would have on image depth in \autoref{sec:optimize}.
@@ -105,7 +105,7 @@ The sky brightness is converted to a per-band sky brightness using the dark sky 
 
 \autoref{tab:SRDm5} lists the minimum and design SRD requirements for \mf\ (rows 1 and 2) and current best estimates for anticipated system performance for all six LSST bands ($ugrizy$, rows 3).We refer to the \mf\ thus calculated as  ``\mf\ SRD estimated''. Estimation of these \mf\ values assumes $X=1$ and a total visit exposure time of 30 seconds, split between two 15-second exposures (2x15 sec ``snaps''). The performance of each component in the hardware systems is based on the values kept up-to-date in the Rubin \href{https://github.com/lsst-pst/syseng_throughputs}{{\tt syseng\_throughputs}} package, version 1.7. {The  reflectivity curves of the system optical surfaces are encoded in this package. It is assumed that the primary ({\it M1}), secondary ({\it M2}), and tertiary ({\it M3}) mirrors are coated with aluminium, silver, and aluminium respectively, and reflectivity estimates are based on measurements from coating samples from June 2019.}
 
-We derived the estimates of \mf\ setting a readout noise equal to 8.8  e$^-$/pixel/read-out. This corresponds to asusuming readout noise equal to the system requirements readout noise across the entire CCD plane (see \href{https://docushare.lsst.org/docushare/dsweb/Get/LSE-59}{{LSE-59}}). \footnote{
+We derived the estimates of \mf\ setting a readout noise equal to 8.8  e$^-$/pixel/read-out. This corresponds to assuming readout noise equal to the system requirements readout noise across the entire CCD plane (see \href{https://docushare.lsst.org/docushare/dsweb/Get/LSE-59}{{LSE-59}}). \footnote{
 These requirements are for a maximum readout noise of 9 e$^-$/pixel/read-out, but include an estimated 0.2  e$^-$/pixel/read-out of dark currrent. Using 8.8 or 9 e$^-$/pixel/read-out, however, generates negligible differences.}
 %We derived the estimates of \mf\ setting a readout noise equal to the system requirements readout noise across the entire CCD plane (see \href{https://docushare.lsst.org/docushare/dsweb/Get/LSE-59}{{LSE-59}}). These requirements are for a maximum readout noise of 9 e$^-$/pixel/read-out.\footnote{As the total readout budget includes an estimated 0.2  e$^-$/pixel/read-out of dark currrent, the readout noise is actually assumed to be 8.8  e$^-$/pixel/read-out. This, however, generates negligible differences.}
 This is a conservative choice, as the median readout noise is now measured to be well below system requirements (between 5 and 6  e$^-$/pixel/read-out, see \autoref{sec:per-amp}). Measured, per-amplifier read-out noise values will be incorporated in the \mf\ estimates in \autoref{sec:per-amp}.
@@ -113,7 +113,7 @@ This is a conservative choice, as the median readout noise is now measured to be
 
 \begin{table}[ht!]
 \caption{Comparison of the SRD single visit magnitude sensitivity requirements and the system sensitivity estimates. The %\cm\ values set by the SRD requirements are also reported in this table (row 6, 7, and 8, see \autoref{eq:Cm} and \autoref{eq:dCm} in \autoref{sec:Cm}) along with the 
- estimated seeing and sky brightness are also included (row 5 and 6).}\label{tab:SRDm5}
+ estimated seeing and sky brightness are also included (row 4 and 5).}\label{tab:SRDm5}
 \footnotesize
 \vskip 0.05in
 \centering
@@ -292,7 +292,7 @@ by 0.2 mag compared to the fiducial values. The SRD estimate of the magnitude lo
 \end{figure}
 \FloatBarrier
 \begin{table}
-\caption{Simulated distributions of visit airmass, sky brightness, and seeing (\fwhme, see \autoref{sec:estdepth}) and their impact on \mf\ ($\Delta m$'s). The \mf\ reference is reported in row 1 in this table (same as \autoref{tab:bl1} row 10) for the reader's convenience. The \mf\ estimates resulting from survey simulations is reported for the \baseline\ LSST simulation. As these are calculated as medians over the 10-year simulation, small discrepancies between the reported \mf\ simulated median values and those obtained correcting the \mf\ reference values by the reported $\Delta m$ combined are expected.}\label{tab:bl2}
+\caption{Simulated distributions of visit airmass, sky brightness, and seeing (\fwhme, see \autoref{sec:estdepth}) and their impact on \mf\ ($\Delta m$'s). The \mf\ reference is reported in row 1 in this table (same as \autoref{tab:bl1} row 8) for the reader's convenience. The \mf\ estimates resulting from survey simulations is reported for the \baseline\ LSST simulation. As these are calculated as medians over the 10-year simulation, small discrepancies between the reported \mf\ simulated median values and those obtained correcting the \mf\ reference values by the reported $\Delta m$ combined are expected.}\label{tab:bl2}
     \centering
 \begin{tabular}{llrrrrrr}
 \hline
@@ -307,12 +307,12 @@ airmass &reference                 &   1.00 &   1.00 &   1.00 &   1.00 &   1.00 
  &median                &   1.16 &   1.18 &   1.18 &   1.18 &   1.19 &   1.20 \\
  &75th percentile       &   1.27 &   1.31 &   1.31 &   1.32 &   1.33 &   1.34 \\
 \hline
-sky brightness& refence           &  22.68 &  22.11 &  21.11 &  20.39 &  19.43 &  18.63 \\
+sky brightness& reference           &  22.68 &  22.11 &  21.11 &  20.39 &  19.43 &  18.63 \\
  &25th percentile &  22.54 &  21.87 &  20.78 &  19.33 &  18.48 &  17.99 \\
 & median          &  22.59 &  21.98 &  20.94 &  20.01 &  18.80 &  18.20 \\
  &75th percentile &  22.64 &  22.10 &  21.03 &  20.23 &  19.13 &  18.39 \\
 \hline
-seeing \fwhme& refence             &   1.04 &   0.98 &   0.92 &   0.88 &   0.86 &   0.84 \\
+seeing \fwhme& reference             &   1.04 &   0.98 &   0.92 &   0.88 &   0.86 &   0.84 \\
  &25th percentile &   0.97 &   0.93 &   0.88 &   0.85 &   0.83 &   0.82 \\
  &median          &   1.16 &   1.11 &   1.05 &   1.01 &   0.97 &   0.95 \\
  &75th percentile &   1.41 &   1.34 &   1.27 &   1.22 &   1.18 &   1.14 \\
